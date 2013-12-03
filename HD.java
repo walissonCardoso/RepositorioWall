@@ -9,7 +9,7 @@ public class HD {
 			SIZE = size;
 		else{
 			System.out.println("Numero invalido na inicializacao do HD");
-			SIZE = 256;
+			SIZE = 0;
 		}
 		dados = new String[SIZE];
 	}

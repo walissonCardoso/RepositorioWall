@@ -2,12 +2,12 @@ package cyber;
 
 public class Data {
 	
-	private int dia;
+    private int dia;
     private int mes;
     private int ano;
 
 	public Data(final int dia, final int mes, final int ano){
-			boolean valido = testaData(dia, mes, ano);
+                    boolean valido = testaData(dia, mes, ano);
 		    if(!valido)
 		        System.out.println("\n\nEsta data nao eh valida!");
 		    else{

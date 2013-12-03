@@ -44,10 +44,10 @@ public abstract class Device {
 	}
 	
 	public int getSizeRAM(){
-		return ram.
+		return ram.getSizeRam();
 	}
 	
 	public abstract void exibirEspecificacoes();
 	
-	public abstract void realizarCalculo();
+	public abstract double realizarCalculo(int oper, double op1, double op2);
 }

@@ -17,6 +17,7 @@ public abstract class Computador extends Device{
 		
 		super(maxRam, sizeRam);
 		this.qtContas = 0;
+                this.contas = new Conta[0];
 		this.hoje = new Data(10, 10, 1990);
 		
 		if(maxHD > 0)
@@ -25,9 +26,10 @@ public abstract class Computador extends Device{
 			System.out.println("O maximo da ram deve ter um valor maior que 0");
 			this.sizeHD = 0;
 		}
-		if(sizeHD > 0 && sizeHD <= maxHD)
+		if(sizeHD > 0 && sizeHD <= maxHD){
 			hd = new HD(sizeHD);
-		else
+                        this.sizeHD = sizeHD;
+                }else
 			System.out.println("O tamando da ram deve ser maior que zero e menor que o maximo");
 	}
 	
@@ -96,15 +98,23 @@ public abstract class Computador extends Device{
 	
 	public void exibirEspecificacoes(){
 		System.out.println(
-				"Este computador possui " + qtContas + "contas"
-				+ "\nO maximo de memoria RAM eh: " + getMaxRAM()
-				+ "\nHa " + ram.getSizeRAM() + " MB na RAM neste momento"
-				+ "\nO maximo de memória HD eh: " + maxHD
-				+ "\nHa " + sizeHD + " MB no HD neste momento"
-				+ "\nHa " + qtContas + " neste computador"
+				"\nEste computador possui " + qtContas + "contas"
+				+ "\nO maximo de memoria RAM eh: " + getMaxRAM() + "MB"
+				+ "\nHa " + getSizeRAM() + " MB na RAM neste momento"
+				+ "\nO maximo de memoria HD eh: " + maxHD + "GB"
+				+ "\nHa " + sizeHD + " GB no HD neste momento"
+				+ "\nHa " + qtContas + " contas neste computador"
 				+ "\n\nVoce esta logado como " + (indiceConta == -1 ? "visitante" : contas[indiceConta].getNome())
 				+ "\nHoje eh dia " + hoje.getData());
 	}
+        
+        public int getMaxHD(){
+            return maxHD;
+        }
+        
+        public int getSizeHD(){
+            return sizeHD;
+        }
 	
 	public abstract void jogar();
 	
